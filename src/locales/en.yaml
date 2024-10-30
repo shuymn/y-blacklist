@@ -1,2 +1,16 @@
 extName: yBlacklist
 extDescription: Browser Extension that allows you to filter out YouTube comments based on keywords.
+
+popup:
+  title: YouTube Comment Filter
+  description: Filter comments by regular expression
+  filter: Filter
+  enable: Enabled
+  disable: Disabled
+  pattern: Regular expression pattern
+  addFilter: Add filter
+  testFilter: Test filter
+  enterTestComment: Enter the comment to test
+  test: Test
+  blocked: The comment is blocked
+  allowed: The comment is allowed

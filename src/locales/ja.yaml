@@ -1,0 +1,16 @@
+extName: yBlacklist
+extDescription: YouTubeコメントを正規表現でフィルタリングするブラウザ拡張機能
+
+popup:
+  title: YouTubeコメントフィルター
+  description: 正規表現でコメントをフィルタリング
+  filter: フィルター
+  enable: 有効
+  disable: 無効
+  pattern: 正規表現パターン
+  addFilter: フィルターを追加
+  testFilter: フィルターのテスト
+  enterTestComment: テストするコメントを入力
+  test: テスト実行
+  blocked: コメントはブロックされます
+  allowed: コメントは許可されます

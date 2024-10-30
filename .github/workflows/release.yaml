@@ -1,0 +1,83 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    env:
+      RELEASE_VERSION: null
+      MANIFEST_VERSION: null
+      EXTENSION_NAME: null
+      OUTDIR: .output
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - name: Set extension name
+        run: |
+          NAME=$(jq -r '.name' package.json)
+          echo "EXTENSION_NAME=${NAME}" >> $GITHUB_ENV
+
+      - name: Check current release version
+        run: |
+          VERSION=$(git fetch --tags && git tag | xargs -n1 test -z && echo '0.0.0' || git rev-list --tags --topo-order --max-count=1 | xargs git describe --tags)
+          echo "RELEASE_VERSION=${VERSION}" >> $GITHUB_ENV
+
+      - name: Check package.json version
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          echo "MANIFEST_VERSION=${VERSION}" >> $GITHUB_ENV
+
+      - name: Push next release tag
+        if: ${{ success() && env.RELEASE_VERSION != env.MANIFEST_VERSION }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api \
+            repos/${{ github.repository}}/git/refs \
+            --method POST \
+            --field ref="refs/tags/${{ env.MANIFEST_VERSION}}" \
+            --field sha="${{ github.sha }}"
+
+      - uses: pnpm/action-setup@v4
+        if: ${{ success() && env.RELEASE_VERSION != env.MANIFEST_VERSION }}
+
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
+        if: ${{ success() && env.RELEASE_VERSION != env.MANIFEST_VERSION }}
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install dependencies
+        if: ${{ success() && env.RELEASE_VERSION != env.MANIFEST_VERSION }}
+        run: pnpm install
+
+      - name: Build and zip the extension
+        if: ${{ success() && env.RELEASE_VERSION != env.MANIFEST_VERSION }}
+        run: pnpm run zip
+
+      - name: Create release
+        if: ${{ success() && env.RELEASE_VERSION != env.MANIFEST_VERSION }}
+        id: create_release
+        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e # v1.1.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.MANIFEST_VERSION }}
+          release_name: Release ${{ env.MANIFEST_VERSION }}
+
+      - name: Upload release asset
+        if: ${{ success() && env.RELEASE_VERSION != env.MANIFEST_VERSION }}
+        uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.OUTDIR }}/${{ env.EXTENSION_NAME }}-${{ env.MANIFEST_VERSION }}-chrome.zip
+          asset_name: ${{ env.EXTENSION_NAME }}-${{ env.MANIFEST_VERSION }}-chrome.zip
+          asset_content_type: application/zip
