@@ -55,8 +55,8 @@ importers:
         specifier: 1.0.2
         version: 1.0.2(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))
       '@wxt-dev/module-react':
-        specifier: 1.1.1
-        version: 1.1.1(vite@5.4.11(@types/node@22.9.0))(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))
+        specifier: 1.1.2
+        version: 1.1.2(vite@5.4.11(@types/node@22.9.0))(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -828,10 +828,10 @@ packages:
       wxt:
         optional: true
 
-  '@wxt-dev/module-react@1.1.1':
-    resolution: {integrity: sha512-bRTHMogtT0AeyKkrHCHhfuPc8hZnbHMPAi9ynm9eRN+uH4IxSZ3rETI7qPz4dbJQua+2ci84/XyQXzw14X/1iA==}
+  '@wxt-dev/module-react@1.1.2':
+    resolution: {integrity: sha512-UO7l7/Sf4+d1ijkizKGS4HFfkpRxhXgQ3BTJRYRijQS83kKXG+UfAG146Q+Rb5Ji87JF8UIO085EWXkhlM1OHg==}
     peerDependencies:
-      wxt: '>=0.18.6'
+      wxt: '>=0.19.16'
 
   '@wxt-dev/storage@1.0.0':
     resolution: {integrity: sha512-Pr0nZUnA6ElAIq5yl+GdZfvhAI3/wXf7ZdwOHShI2VtDirfgo+tBFQZ123f86l5i81v7FfvrQi3WFSzojcRsJw==}
@@ -3361,7 +3361,7 @@ snapshots:
     optionalDependencies:
       wxt: 0.19.15(@types/node@22.9.0)(rollup@4.27.2)
 
-  '@wxt-dev/module-react@1.1.1(vite@5.4.11(@types/node@22.9.0))(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))':
+  '@wxt-dev/module-react@1.1.2(vite@5.4.11(@types/node@22.9.0))(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))':
     dependencies:
       '@vitejs/plugin-react': 4.3.3(vite@5.4.11(@types/node@22.9.0))
       wxt: 0.19.15(@types/node@22.9.0)(rollup@4.27.2)
