@@ -16,7 +16,7 @@ importers:
         version: 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@wxt-dev/i18n':
         specifier: ^0.2.2
-        version: 0.2.3(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))
+        version: 0.2.3(wxt@0.19.16(@types/node@22.9.0)(rollup@4.27.2))
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -53,10 +53,10 @@ importers:
         version: 18.3.1
       '@wxt-dev/auto-icons':
         specifier: 1.0.2
-        version: 1.0.2(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))
+        version: 1.0.2(wxt@0.19.16(@types/node@22.9.0)(rollup@4.27.2))
       '@wxt-dev/module-react':
         specifier: 1.1.2
-        version: 1.1.2(vite@5.4.11(@types/node@22.9.0))(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))
+        version: 1.1.2(vite@5.4.11(@types/node@22.9.0))(wxt@0.19.16(@types/node@22.9.0)(rollup@4.27.2))
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -70,8 +70,8 @@ importers:
         specifier: 5.6.3
         version: 5.6.3
       wxt:
-        specifier: 0.19.15
-        version: 0.19.15(@types/node@22.9.0)(rollup@4.27.2)
+        specifier: 0.19.16
+        version: 0.19.16(@types/node@22.9.0)(rollup@4.27.2)
 
 packages:
 
@@ -2672,8 +2672,8 @@ packages:
       utf-8-validate:
         optional: true
 
-  wxt@0.19.15:
-    resolution: {integrity: sha512-Y3wLr5DZpu0XjsOBqs1Wafcvgup7d2L+IpmkZHli2dw0VVhSqssYrKatpprKSDj0i0/SW9esSeooEI2id8/G3Q==}
+  wxt@0.19.16:
+    resolution: {integrity: sha512-bruLIg+KPXv5ZJEwhHLE5sYyG53ch55WR6klSVax+dBB8Bp4VxCp9cxSptAk/M/l8Qcji26/Cd6K35F19eODmg==}
     hasBin: true
 
   xdg-basedir@5.1.0:
@@ -3346,25 +3346,25 @@ snapshots:
 
   '@webext-core/match-patterns@1.0.3': {}
 
-  '@wxt-dev/auto-icons@1.0.2(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))':
+  '@wxt-dev/auto-icons@1.0.2(wxt@0.19.16(@types/node@22.9.0)(rollup@4.27.2))':
     dependencies:
       defu: 6.1.4
       fs-extra: 11.2.0
       sharp: 0.33.5
-      wxt: 0.19.15(@types/node@22.9.0)(rollup@4.27.2)
+      wxt: 0.19.16(@types/node@22.9.0)(rollup@4.27.2)
 
-  '@wxt-dev/i18n@0.2.3(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))':
+  '@wxt-dev/i18n@0.2.3(wxt@0.19.16(@types/node@22.9.0)(rollup@4.27.2))':
     dependencies:
       chokidar: 3.6.0
       confbox: 0.1.8
       fast-glob: 3.3.2
     optionalDependencies:
-      wxt: 0.19.15(@types/node@22.9.0)(rollup@4.27.2)
+      wxt: 0.19.16(@types/node@22.9.0)(rollup@4.27.2)
 
-  '@wxt-dev/module-react@1.1.2(vite@5.4.11(@types/node@22.9.0))(wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2))':
+  '@wxt-dev/module-react@1.1.2(vite@5.4.11(@types/node@22.9.0))(wxt@0.19.16(@types/node@22.9.0)(rollup@4.27.2))':
     dependencies:
       '@vitejs/plugin-react': 4.3.3(vite@5.4.11(@types/node@22.9.0))
-      wxt: 0.19.15(@types/node@22.9.0)(rollup@4.27.2)
+      wxt: 0.19.16(@types/node@22.9.0)(rollup@4.27.2)
     transitivePeerDependencies:
       - supports-color
       - vite
@@ -5278,7 +5278,7 @@ snapshots:
 
   ws@8.18.0: {}
 
-  wxt@0.19.15(@types/node@22.9.0)(rollup@4.27.2):
+  wxt@0.19.16(@types/node@22.9.0)(rollup@4.27.2):
     dependencies:
       '@aklinker1/rollup-plugin-visualizer': 5.12.0(rollup@4.27.2)
       '@types/chrome': 0.0.280
